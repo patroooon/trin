@@ -9,8 +9,6 @@ namespace TrafficInfinity
     {
         public GameObject FlashlightOn;
         private bool isMoving;
-        
-       
 
         private void Update()
         {

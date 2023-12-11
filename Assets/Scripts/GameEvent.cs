@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace TrafficInfinity
 {
-    public class EndGame : MonoBehaviour
+    public static class GameEvent
     {
-      
+        public static event System.Action onBrake;
+        
+        
     }
 }

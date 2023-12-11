@@ -10,7 +10,7 @@ namespace TrafficInfinity
         public float minStopDuration = 1f;
         public float maxStopDuration = 3f;
 
-        private bool isMoving = true;
+        public bool onMoving = true;
         private float stopDuration;
         private float timer;
 
@@ -21,7 +21,7 @@ namespace TrafficInfinity
 
         private void Update()
         {
-            if (isMoving)
+            if (onMoving)
             {
                 // Движение объекта по оси Z
                 transform.Translate(Vector3.forward * speedVan * Time.deltaTime);
@@ -33,10 +33,10 @@ namespace TrafficInfinity
             if (timer >= stopDuration)
             {
                 // Изменение состояния движения и сброс таймера
-                isMoving = !isMoving;
+                onMoving = !onMoving;
                 timer = 0f;
 
-                if (isMoving)
+                if (onMoving)
                 {
                     // Генерация новой случайной длительности остановки
                     stopDuration = Random.Range(minStopDuration, maxStopDuration);
