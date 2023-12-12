@@ -5457,7 +5457,6 @@ MonoBehaviour:
   speedVan: 15
   minStopDuration: 0.5
   maxStopDuration: 5
-  onMoving: 1
 --- !u!114 &997659370
 MonoBehaviour:
   m_ObjectHideFlags: 0

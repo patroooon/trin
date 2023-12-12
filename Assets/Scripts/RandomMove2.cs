@@ -9,8 +9,8 @@ namespace TrafficInfinity
         public float speedVan = 1f;
         public float minStopDuration = 1f;
         public float maxStopDuration = 3f;
+        public static bool onMoving = true;
 
-        public bool onMoving = true;
         private float stopDuration;
         private float timer;
 

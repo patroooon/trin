@@ -8,19 +8,21 @@ namespace TrafficInfinity
     public class LightController : MonoBehaviour
     {
         public GameObject FlashlightOn;
-        private bool isMoving;
+        private bool onMovingValue = RandomMove2.onMoving;
+      
 
         private void Update()
         {
-            if (isMoving == true)
+            if (!RandomMove2.onMoving)
+            {
+                FlashlightOn.SetActive(true);
+            }
+
+            else
             {
                 FlashlightOn.SetActive(false);
             }
 
-            if (isMoving == false)
-            {
-                FlashlightOn.SetActive(true);
-            }
         }
     }
 }
