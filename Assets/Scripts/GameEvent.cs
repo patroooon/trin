@@ -7,10 +7,17 @@ namespace TrafficInfinity
     public static class GameEvent
     {
         public static event System.Action onMoving;
-        public static event System.Action carsCollision;
-        public static event System.Action longDistance;
+        public static event System.Action onFar;
+        public static event System.Action onCrash;
 
 
+        
+
+        public static void CollisionCars(Collision collision)
+        {
+            onCrash?.Invoke();
+        }
        
+        
     }
 }
