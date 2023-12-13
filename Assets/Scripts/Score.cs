@@ -6,9 +6,11 @@ namespace TrafficInfinity
 {
     public class Score : MonoBehaviour
     {
+        public static float distanceTraveled;
+        public static int roundedDistance;
+
         private Rigidbody rb;
         private Vector3 oldPosition;
-        private float distanceTraveled;
 
         private void Start()
         {
