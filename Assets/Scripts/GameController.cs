@@ -20,13 +20,9 @@ namespace TrafficInfinity
             }
         }
 
-        private void OnColisionCars(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
             Debug.Log("Игра завершена!");
-            /*if (collision.gameObject.CompareTag("Player") && collision.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("Игра завершена!");
-            }*/
         }
     }
 }
