@@ -8,12 +8,12 @@ namespace TrafficInfinity
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private InputActionAsset m_inputActionAsset;
         [SerializeField] private Transform m_characterController;
+        [SerializeField] private InputActionAsset m_inputActionAsset;
         [SerializeField] private float m_speedMove = 5f;
 
 
-	private InputActionMap m_playerMap;
+	    private InputActionMap m_playerMap;
         private InputAction m_moveAction;
 
         private void Awake()
@@ -38,7 +38,6 @@ namespace TrafficInfinity
             if (move != Vector2.zero)
             {
                 Vector3 dir = new Vector3(move.x, 0f, move.y);
-                //m_characterController.SimpleMove(dir * m_speedMove);
                 m_characterController.position += dir * m_speedMove * Time.deltaTime;
 
             }

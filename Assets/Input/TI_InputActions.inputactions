@@ -1,5 +1,5 @@
 {
-    "name": "SC_InputActions",
+    "name": "TI_InputActions",
     "maps": [
         {
             "name": "Player",
@@ -63,6 +63,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "57c7c7a8-46f2-4fc2-b87e-8c6bb5d490e0",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;Touch",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
