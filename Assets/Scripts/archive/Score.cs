@@ -20,7 +20,7 @@ namespace TrafficInfinity
             InvokeRepeating("CalculateDistance", 1f, 1f);
         }
 
-        private void CalculateDistance()
+        public void CalculateDistance()
         {
             Vector3 newPosition = rb.position;
             float distance = Vector3.Distance(newPosition, oldPosition);
