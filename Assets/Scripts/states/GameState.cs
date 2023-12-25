@@ -6,16 +6,35 @@ namespace TrafficInfinity
 {
     public class GameState : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public List<GameObject> views;
+
+        public void Enter()
         {
-        
+            gameObject.SetActive(true);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Exit()
         {
-        
+            gameObject.SetActive(false);
+        }
+
+        protected virtual void OnEnable()
+        {
+            foreach (var item in views)
+            {
+                item.SetActive(true);
+            }
+        }
+
+        protected virtual void OnDisable()
+        {
+            foreach (var item in views)
+            {
+                if (item)
+                {
+                    item.SetActive(false);
+                }
+            }
         }
     }
 }

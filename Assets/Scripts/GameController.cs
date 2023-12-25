@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TrafficInfinity
 {
@@ -9,6 +10,8 @@ namespace TrafficInfinity
         public Transform Van;
         public Transform Player;
         public float maxDistance = 5f;
+        public UnityEvent onDistanceFar;
+        public UnityEvent onCarCrash;
 
         private void Update()
         {
@@ -16,13 +19,20 @@ namespace TrafficInfinity
             float distance = Mathf.Abs(Van.position.z - Player.position.z);
             if (distance >= maxDistance)
             {
+                onDistanceFar?.Invoke();
                 Debug.Log("большое расстояние!");
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
+            onCarCrash?.Invoke();
             Debug.Log("Игра завершена!");
         }
+
+        /*public void CarRestart()
+        {
+            
+        }*/
     } 
 }

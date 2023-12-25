@@ -1,21 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace TrafficInfinity
 {
-    public class GameplayState : MonoBehaviour
+    public class GameplayState : GameState
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public GameController gameController;
+        public PlayerController playerController;
+        public GameState gameOverState;
+        //public TMP_Text scoreText;
         
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            gameController.enabled = true;
+            playerController.enabled = true;
+
+            
+           /* UnityEvent.onCarCrash += OnGameOver;
+            GameEvents.onDistanceFar += OnGameOver;
+           */
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnGameOver()
         {
-        
+            Exit();
+            gameOverState.Enter();
         }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            /*GameEvents.onCarCrash -= OnGameOver;
+            GameEvents.onDistanceFar -= OnGameOver;
+            */
+
+            gameController.enabled = false;
+            playerController.enabled = false;
+        }
+
     }
 }

@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TrafficInfinity
 {
-    public class GameOverState : MonoBehaviour
+    public class GameOverState : GameState
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public GameState mainMenuState;
+        public GameController gameController;
 
-        // Update is called once per frame
-        void Update()
+        public void Restart()
         {
-        
+            Exit();
+            mainMenuState.Enter();
         }
     }
 }
