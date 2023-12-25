@@ -24,5 +24,5 @@ namespace TrafficInfinity
         {
             Debug.Log("Игра завершена!");
         }
-    }
+    } 
 }
