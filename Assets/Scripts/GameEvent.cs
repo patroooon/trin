@@ -6,8 +6,8 @@ namespace TrafficInfinity
 {
     public static class GameEvent
     {
-        public static event System.Action onCarCrash;
-        public static event System.Action onDistanceFar;
+        public static System.Action onCarCrash;
+        public static System.Action onDistanceFar;
     }
 
    

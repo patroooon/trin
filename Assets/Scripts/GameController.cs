@@ -10,23 +10,35 @@ namespace TrafficInfinity
         public Transform Van;
         public Transform Player;
         public float maxDistance = 5f;
-        private UnityEvent onDistanceFar;
-        private UnityEvent onCarCrash;
+        private bool m_isOver;
+        
 
         private void Update()
         {
+            if (m_isOver)
+            {
+                return;
+            }
             
             float distance = Mathf.Abs(Van.position.z - Player.position.z);
             if (distance >= maxDistance)
             {
-                onDistanceFar?.Invoke();
+                m_isOver = true;
+                GameEvent.onDistanceFar?.Invoke();
                 Debug.Log("большое расстояние!");
             }
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            onCarCrash?.Invoke();
+            if (m_isOver)
+            {
+                return;
+            }
+
+            m_isOver = true;
+
+            GameEvent.onCarCrash?.Invoke();
             Debug.Log("Игра завершена!");
         }
 

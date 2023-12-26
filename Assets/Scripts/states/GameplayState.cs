@@ -27,6 +27,7 @@ namespace TrafficInfinity
 
         private void OnGameOver()
         {
+            Debug.Log("GameOver!!!");
             Exit();
             gameOverState.Enter();
         }
