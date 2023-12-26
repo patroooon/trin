@@ -20,9 +20,9 @@ namespace TrafficInfinity
             playerController.enabled = true;
 
             
-           /* UnityEvent.onCarCrash += OnGameOver;
-            GameEvents.onDistanceFar += OnGameOver;
-           */
+           GameEvent.onCarCrash += OnGameOver;
+           GameEvent.onDistanceFar += OnGameOver;
+           
         }
 
         private void OnGameOver()
@@ -35,9 +35,9 @@ namespace TrafficInfinity
         {
             base.OnDisable();
 
-            /*GameEvents.onCarCrash -= OnGameOver;
-            GameEvents.onDistanceFar -= OnGameOver;
-            */
+            GameEvent.onCarCrash -= OnGameOver;
+            GameEvent.onDistanceFar -= OnGameOver;
+            
 
             gameController.enabled = false;
             playerController.enabled = false;

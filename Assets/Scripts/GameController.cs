@@ -10,8 +10,8 @@ namespace TrafficInfinity
         public Transform Van;
         public Transform Player;
         public float maxDistance = 5f;
-        public UnityEvent onDistanceFar;
-        public UnityEvent onCarCrash;
+        private UnityEvent onDistanceFar;
+        private UnityEvent onCarCrash;
 
         private void Update()
         {

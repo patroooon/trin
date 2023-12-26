@@ -4,18 +4,16 @@ using UnityEngine;
 
 namespace TrafficInfinity
 {
-    public class MainMenuState : MonoBehaviour
+    public class MainMenuState : GameState
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public GameController gameController;
+        public GameState gamePlayState;
+       
 
-        // Update is called once per frame
-        void Update()
+        public void PlayGame()
         {
-        
+            Exit();
+            gamePlayState.Enter();
         }
     }
 }

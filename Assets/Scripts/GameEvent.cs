@@ -10,5 +10,5 @@ namespace TrafficInfinity
         public static event System.Action onDistanceFar;
     }
 
-    
+   
 }
