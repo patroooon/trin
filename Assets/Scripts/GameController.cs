@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace TrafficInfinity
 {
@@ -11,7 +12,12 @@ namespace TrafficInfinity
         public Transform Player;
         public float maxDistance = 5f;
         private bool m_isOver;
-        
+        public GameObject objectToEnable;
+
+        /*public void OnButtonClick()
+        {
+            objectToEnable.SetActive(true);
+        }*/
 
         private void Update()
         {

@@ -9,11 +9,14 @@ namespace TrafficInfinity
     {
         public GameState mainMenuState;
         public GameController gameController;
+       // public GameObject gameOverScreen;
+       // public Transform originalPosition;
 
         public void Restart()
         {
             Exit();
             mainMenuState.Enter();
+           // transform.position = originalPosition.position;
         }
     }
 }
