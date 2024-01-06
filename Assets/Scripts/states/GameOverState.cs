@@ -17,9 +17,7 @@ namespace TrafficInfinity
         public void Restart()
         {
             Exit();
-            mainMenuState.Enter();
-            //Van.transform.position = new Vector3(0, 0, 0);
-            //Player.transform.position = new Vector3(0, 0, 0);
+            mainMenuState.Enter();     
             Van.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

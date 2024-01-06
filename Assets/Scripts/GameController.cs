@@ -12,12 +12,8 @@ namespace TrafficInfinity
         public Transform Player;
         public float maxDistance = 5f;
         private bool m_isOver;
-        public GameObject objectToEnable;
-
-        /*public void OnButtonClick()
-        {
-            objectToEnable.SetActive(true);
-        }*/
+      
+     
 
         private void Update()
         {
@@ -48,9 +44,5 @@ namespace TrafficInfinity
             Debug.Log("Игра завершена!");
         }
 
-        /*public void CarRestart()
-        {
-            
-        }*/
     } 
 }
