@@ -11,9 +11,11 @@ namespace TrafficInfinity
         public Transform Van;
         public Transform Player;
         public float maxDistance = 5f;
+        private Animator animator;
         private bool m_isOver;
-      
-     
+       
+
+
 
         private void Update()
         {
@@ -26,8 +28,9 @@ namespace TrafficInfinity
             if (distance >= maxDistance)
             {
                 m_isOver = true;
-                GameEvent.onDistanceFar?.Invoke();
+                GameEvent.onDistanceFar?.Invoke();     
                 Debug.Log("большое расстояние!");
+                animator.Play("CarAnimation");
             }
         }
 
