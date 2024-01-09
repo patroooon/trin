@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0bc19141b8782344a8d3b400139abaaf, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1603,7 +1603,7 @@ Transform:
   m_GameObject: {fileID: 432544894}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4, y: 4.099, z: 2.955}
+  m_LocalPosition: {x: 1.4, y: 4.099, z: 6.12}
   m_LocalScale: {x: 0.3, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1808,7 +1808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.34
+      value: 10.37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d20839e362efa3d4baa3d2ce1b4f2df4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7913,7 +7913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &997659366
 Transform:
   m_ObjectHideFlags: 0
@@ -7927,10 +7927,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1174332002}
   - {fileID: 454210986}
   - {fileID: 432544895}
   - {fileID: 343512873}
-  - {fileID: 1174332002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &997659369
@@ -7981,7 +7981,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 1.48, y: 0.95, z: 3.21}
+  m_Center: {x: 1.57, y: 1.12, z: 6.2}
 --- !u!43 &998983131
 Mesh:
   m_ObjectHideFlags: 0
@@ -8232,7 +8232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Van: {fileID: 997659366}
   Player: {fileID: 1010628121}
-  maxDistance: 15
+  maxDistance: 7
 --- !u!54 &1010628126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11970,7 +11970,7 @@ Animator:
   m_GameObject: {fileID: 1551378930}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b7a8408f8994a5c4cb9682a8f445c613, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1272ba7499fff9b45a110ec3b4a3d654, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14271,6 +14271,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
       propertyPath: m_Name
       value: Vehicle_SUV_color01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 288b117258616aa4f928ba6f91dc47c3, type: 3}
       propertyPath: m_LocalPosition.x

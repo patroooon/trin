@@ -7,11 +7,6 @@ namespace TrafficInfinity
 {
     public class AnimMCar : MonoBehaviour
     {
-        public Animation anim;
-
-        public void PlayAnimation()
-        {
-            anim.Play("CarAnimation");
-        }
+      
     }
 }
