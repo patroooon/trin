@@ -21,7 +21,8 @@ namespace TrafficInfinity
 
                
                 distanceText.text = distanceTraveled.ToString("0") ;
-            }
+                finalText.text = distanceTraveled.ToString("0");
+        }
 
     }
 }
