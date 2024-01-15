@@ -12,9 +12,6 @@ namespace TrafficInfinity
         public Transform Player;
         public float maxDistance = 10f;
         private bool m_isOver;
-       
-
-
 
         private void Update()
         {

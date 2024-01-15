@@ -13,7 +13,7 @@ namespace TrafficInfinity
 
         [SerializeField] private Transform m_characterController;
         [SerializeField] private InputActionAsset m_inputActionAsset;
-        [SerializeField] private float m_speedMove = 15f;
+        [SerializeField] private float m_speedMove = 17f;
       
         private InputActionMap m_playerMap;
         private InputAction m_moveAction;
