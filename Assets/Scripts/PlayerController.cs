@@ -8,12 +8,13 @@ namespace TrafficInfinity
 {
     public class PlayerController : MonoBehaviour
     {
+        public float m_speedMove = 17f;
         public float increaseSpeedDistance = 30f;
         public Transform zero;
 
         [SerializeField] private Transform m_characterController;
         [SerializeField] private InputActionAsset m_inputActionAsset;
-        [SerializeField] private float m_speedMove = 17f;
+        
       
         private InputActionMap m_playerMap;
         private InputAction m_moveAction;

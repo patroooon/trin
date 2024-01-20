@@ -6,36 +6,44 @@ namespace TrafficInfinity
 {
     public class CarSpawn : MonoBehaviour
     {
-        public GameObject objectPrefab;
-        public float speed = 20f;
-        public float minSpawnInterval = 1f;
-        public float maxSpawnInterval = 3f;
-        public float destroy = 5f;
-       
+        public GameObject[] objectPrefabs; // Массив префабов объектов, которые нужно респавнить
+        public float minSpawnDelay = 1f; // Минимальный интервал времени между респавном объектов
+        public float maxSpawnDelay = 5f; // Максимальный интервал времени между респавном объектов
+        public float objectLifetime = 10f; // Время жизни объекта до его удаления
 
-        void Start()
+        private void Start()
         {
-            StartCoroutine(SpawnObjectsWithDelay());
+            // Запускаем корутину для респавна объектов с заданным интервалом
+            StartCoroutine(SpawnObjects());
         }
-        IEnumerator SpawnObjectsWithDelay()
+
+        private System.Collections.IEnumerator SpawnObjects()
         {
             while (true)
             {
-                // Создание объекта
-                GameObject newObject = Instantiate(objectPrefab, transform.position, Quaternion.identity);
+                // Генерируем случайный интервал времени для ожидания перед респавном
+                float spawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+                yield return new WaitForSeconds(spawnDelay);
 
-                // Получение компонента Transform нового объекта
-                Transform objectTransform = newObject.transform;
+                // Генерируем случайный индекс префаба из массива
+                int randomIndex = Random.Range(0, objectPrefabs.Length);
 
-                // Установка скорости движения объекта по оси Z
-                objectTransform.position += Vector3.forward * speed * Time.deltaTime;
+                // Создаем новый объект из случайного префаба
+                GameObject newObject = Instantiate(objectPrefabs[randomIndex], transform.position, transform.rotation);
 
-                // Задержка перед созданием следующего объекта
-                float delay = Random.Range(minSpawnInterval, maxSpawnInterval);
-                yield return new WaitForSeconds(delay);
-                Destroy(gameObject, destroy);
+                // Запускаем корутину для удаления объекта через время objectLifetime
+                StartCoroutine(DestroyObject(newObject, objectLifetime));
             }
         }
+
+        private System.Collections.IEnumerator DestroyObject(GameObject objectToDestroy, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            // Удаляем объект
+            Destroy(objectToDestroy);
+        }
+
     }
 }
 
