@@ -6771,11 +6771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b0b8237a85ef9459c25453eef59d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedVan: 15
   minStopDuration: 0.5
   maxStopDuration: 5
-  increaseSpeedDistance: 30
   van: {fileID: 167506944}
+  PlayerController: {fileID: 0}
 --- !u!114 &997659370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8190,7 +8189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1402407576
 MonoBehaviour:
   m_ObjectHideFlags: 0

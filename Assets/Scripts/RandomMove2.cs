@@ -6,11 +6,12 @@ namespace TrafficInfinity
 {
     public class RandomMove2 : MonoBehaviour
     {
-        public float speedVan = 15f;
+        //public float speedVan = 15f;
         public float minStopDuration = 1f;
         public float maxStopDuration = 3f;
-        public float increaseSpeedDistance = 30f;
+        //public float increaseSpeedDistance = 30f;
         public Transform van;
+        public PlayerController PlayerController;
         public static bool onMoving = true;
 
         private float stopDuration;
@@ -25,14 +26,9 @@ namespace TrafficInfinity
 
         private void Update()
         {
-            float currentDistance = Mathf.Abs(van.position.z - transform.position.z); 
-
-            if (currentDistance >= lastDistance + increaseSpeedDistance)
-            {
-                speedVan += 1f;
-                lastDistance = currentDistance;
-                Debug.Log("Скорость грузовика увеличена! Текущее значение: " + speedVan);
-            }
+            float speedVan = PlayerController.m_speedMove;
+            float currentDistance = Mathf.Abs(van.position.z - transform.position.z);
+            Debug.Log("Скорость грузовика увеличена! Текущее значение: " + speedVan);
 
             if (onMoving)
             {
