@@ -6878,7 +6878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c18f4b5b3f6254b801f9529c229296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetZPosition: 50
+  targetZPosition: 300
 --- !u!4 &1001413176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
@@ -8070,9 +8070,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1218145572}
   - {fileID: 1485040118}
   - {fileID: 2141606006}
+  - {fileID: 1218145572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1395550626
@@ -8395,22 +8395,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1485040119}
-        m_TargetAssemblyTypeName: TrafficInfinity.MainMenuState, Assembly-CSharp
-        m_MethodName: PlayGame
-        m_Mode: 1
+      - m_Target: {fileID: 997659365}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 997659365}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1485040119}
+        m_TargetAssemblyTypeName: TrafficInfinity.MainMenuState, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8565,6 +8565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   views:
   - {fileID: 2083160726}
+  - {fileID: 1446713790}
   gameController: {fileID: 1010628125}
   gamePlayState: {fileID: 2141606007}
 --- !u!1001 &1507332707
