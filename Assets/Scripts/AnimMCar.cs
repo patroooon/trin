@@ -9,12 +9,15 @@ namespace TrafficInfinity
     {
         public Transform Van;
         public Transform Player;
-        public float maxDistance = 10f;
+        //public float maxDistance = 10f;
+        public GameController GameController;
 
-        private Animator anim;
+
+          private Animator anim;
 
         private void Update()
         {
+            float maxDistance = GameController.maxDistance;
             float distance = Mathf.Abs(Van.position.z - Player.position.z);
             if (distance >= maxDistance)
             {

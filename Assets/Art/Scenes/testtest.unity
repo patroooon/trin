@@ -2675,7 +2675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Van: {fileID: 997659366}
   Player: {fileID: 1010628121}
-  maxDistance: 12
+  GameController: {fileID: 1010628125}
 --- !u!95 &475496268
 Animator:
   serializedVersion: 5
@@ -6774,7 +6774,7 @@ MonoBehaviour:
   minStopDuration: 0.5
   maxStopDuration: 5
   van: {fileID: 167506944}
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 1741723815}
 --- !u!114 &997659370
 MonoBehaviour:
   m_ObjectHideFlags: 0
