@@ -11,7 +11,7 @@ namespace TrafficInfinity
         public PlayerController PlayerController;
 
         private float currentSpeed;
-
+        
         private void Update()
         {
             float value = PlayerController.m_speedMove;
