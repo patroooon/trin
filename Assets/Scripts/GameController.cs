@@ -31,7 +31,7 @@ namespace TrafficInfinity
             }
         }
 
-        public void OnTriggerEnter(Collider other)
+         public void OnTriggerEnter(Collider other)
         {
             if (m_isOver)
             {
@@ -43,6 +43,6 @@ namespace TrafficInfinity
             GameEvent.onCarCrash?.Invoke();
             Debug.Log("Игра завершена!");
         }
-
-    } 
+   
+} 
 }

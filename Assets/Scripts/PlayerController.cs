@@ -9,6 +9,7 @@ namespace TrafficInfinity
     public class PlayerController : MonoBehaviour
     {
         public float m_speedMove = 17f;
+        public float maxSpeed = 30f;
         public float increaseSpeedDistance = 30f;
         public Transform zero;
 
@@ -59,6 +60,14 @@ namespace TrafficInfinity
                 m_lastDistance = currentDistance;
                 Debug.Log("Скорость авто увеличена! Текущее значение: " + m_speedMove);
             }
+
+            if (m_speedMove >= maxSpeed)
+            {
+                // Останавливаем увеличение скорости
+                m_speedMove = maxSpeed;
+            }
+
+
         }
     }
 
