@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Van
+  - Scene
   layers:
   - Default
   - TransparentFX
