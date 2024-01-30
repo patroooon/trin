@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Art/Scenes/test.unity
     guid: 39e33ece4dd48ab46bfe1d8f664ba634
-  - enabled: 1
+  - enabled: 0
     path: Assets/Art/Scenes/level1.unity
     guid: 54631dbd3d52f974c8290650e5cabf39
   - enabled: 0
