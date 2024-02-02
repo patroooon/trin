@@ -23,7 +23,7 @@ namespace TrafficInfinity
             saveButton.onClick.AddListener(SavePlayer);
             resultButton.onClick.AddListener(DisplayRecords);
 
-            // Load records when the game starts
+            
             LoadRecords();
         }
 
@@ -73,7 +73,7 @@ namespace TrafficInfinity
 
         private void SaveRecords()
         {
-            // Convert the list of players to a JSON string and save it to PlayerPrefs
+            
             string json = JsonUtility.ToJson(players);
             PlayerPrefs.SetString("PlayerRecords", json);
             PlayerPrefs.Save();
@@ -81,7 +81,7 @@ namespace TrafficInfinity
 
         private void LoadRecords()
         {
-            // Load the JSON string from PlayerPrefs and convert it back to the list of players
+            
             string json = PlayerPrefs.GetString("PlayerRecords", "");
             players = JsonUtility.FromJson<List<Player>>(json);
 

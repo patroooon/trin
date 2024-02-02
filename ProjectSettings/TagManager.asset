@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Van
   - Scene
+  - Light
   layers:
   - Default
   - TransparentFX
