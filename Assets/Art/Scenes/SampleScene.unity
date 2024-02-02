@@ -1121,6 +1121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1205,6 +1206,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &859854258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,7 +3411,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 5e7e8c63a87b48943bb5b0da2bb7a565, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5758,9 +5782,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b0b8237a85ef9459c25453eef59d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedVan: 15
   minStopDuration: 0.5
   maxStopDuration: 5
+  van: {fileID: 0}
+  PlayerController: {fileID: 0}
 --- !u!114 &997659370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6193,7 +6218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 0bc19141b8782344a8d3b400139abaaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8490,9 +8515,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82082feed782b294c982bbd2179338f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_speedMove: 15
+  maxSpeed: 30
+  increaseSpeedDistance: 30
+  zero: {fileID: 0}
   m_characterController: {fileID: 1010628121}
   m_inputActionAsset: {fileID: -944628639613478452, guid: 1eb9786b1712ca941b3f0ac3069114d1, type: 3}
-  m_speedMove: 15
 --- !u!4 &1741723816
 Transform:
   m_ObjectHideFlags: 0
