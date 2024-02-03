@@ -11,9 +11,9 @@ namespace TrafficInfinity
         public PlayerController playerController;
         public GameState gameOverState;
         public TMP_Text scoreText;
-        public ScoreData scoreData;
+       
 
-        private int currentScore;
+        
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -27,15 +27,15 @@ namespace TrafficInfinity
            
         }
 
-        private void OnGameOver()
+        public void OnGameOver()
         {
             Debug.Log("GameOver!!!");
 
-            string textValue = scoreText.text;
+           /* string textValue = scoreText.text;
 
             if (int.TryParse(textValue, out int intValue))
             {
-                // intValue содержит результат преобразования в int
+                
                 Debug.Log("Converted value: " + intValue);
             }
             else
@@ -45,7 +45,7 @@ namespace TrafficInfinity
 
 
             scoreData.SaveScore(intValue);
-            Debug.Log("Данные сохранены");
+            Debug.Log("Данные сохранены");*/
             Exit();
             gameOverState.Enter();
         }

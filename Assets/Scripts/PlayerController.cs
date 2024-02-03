@@ -63,7 +63,7 @@ namespace TrafficInfinity
 
             if (m_speedMove >= maxSpeed)
             {
-                // Останавливаем увеличение скорости
+               
                 m_speedMove = maxSpeed;
             }
 
