@@ -1,0 +1,5 @@
+{
+	"displayName":"Leaderboards Sample",
+	"description": "A basic set of SDK calls that lets you add and retrieve leaderboard scores.",
+	"createSeparatePackage": false
+}

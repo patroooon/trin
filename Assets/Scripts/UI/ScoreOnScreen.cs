@@ -12,17 +12,18 @@ namespace TrafficInfinity
             public Transform player; 
             public TMP_Text distanceText;
             public TMP_Text finalText;
+            
 
-        private float distanceTraveled = 0f; 
+            private float distanceTraveled = 0f;
+               
             private void Update()
             {
                 
                 distanceTraveled = player.position.z;
-
-               
                 distanceText.text = distanceTraveled.ToString("0") ;
                 finalText.text = distanceTraveled.ToString("0");
-        }
+            }
 
+      
     }
 }
