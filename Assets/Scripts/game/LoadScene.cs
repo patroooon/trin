@@ -13,8 +13,8 @@ namespace TrafficInfinity
         {
             if (other.CompareTag("Scene"))
             {
-                SceneManager.LoadSceneAsync("levelDark", LoadSceneMode.Additive);
-                Debug.Log("уровень загружен");
+                //SceneManager.LoadSceneAsync("levelDark", LoadSceneMode.Additive);
+               // Debug.Log("уровень загружен");
                 
                
                 RenderSettings.ambientLight = Color.black;

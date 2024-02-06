@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace TrafficInfinity
 {
@@ -10,10 +11,13 @@ namespace TrafficInfinity
         public GameController gameController;
         public PlayerController playerController;
         public GameState gameOverState;
-        public TMP_Text scoreText;
-       
 
-        
+        public TMP_Text scoreText;
+        public TMP_InputField nameInput;
+        public ScoreData scoreData;
+
+
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -31,21 +35,25 @@ namespace TrafficInfinity
         {
             Debug.Log("GameOver!!!");
 
-           /* string textValue = scoreText.text;
+            int score = int.Parse(scoreText.text.Replace("Score: ", "")); // Получаем счет из текста и преобразуем в int
+            string playerName = nameInput.text;
 
-            if (int.TryParse(textValue, out int intValue))
-            {
-                
-                Debug.Log("Converted value: " + intValue);
-            }
-            else
-            {
-                Debug.LogError("Unable to convert text to int");
-            }
+            scoreData.AddScore(playerName, score);
+            /* string textValue = scoreText.text;
+
+             if (int.TryParse(textValue, out int intValue))
+             {
+
+                 Debug.Log("Converted value: " + intValue);
+             }
+             else
+             {
+                 Debug.LogError("Unable to convert text to int");
+             }
 
 
-            scoreData.SaveScore(intValue);
-            Debug.Log("Данные сохранены");*/
+             scoreData.SaveScore(intValue);
+             Debug.Log("Данные сохранены");*/
             Exit();
             gameOverState.Enter();
         }

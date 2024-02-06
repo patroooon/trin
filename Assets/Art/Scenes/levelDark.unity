@@ -8658,6 +8658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c18f4b5b3f6254b801f9529c229296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightObjects: []
 --- !u!65 &200671494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22363,6 +22364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c18f4b5b3f6254b801f9529c229296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightObjects: []
 --- !u!65 &697950075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27947,6 +27949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c18f4b5b3f6254b801f9529c229296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightObjects: []
 --- !u!4 &1001413176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4f32dfddb033d3e40b5841bc53cc1689, type: 3}
@@ -71973,6 +71976,7 @@ MonoBehaviour:
   gameController: {fileID: 1010628125}
   playerController: {fileID: 1741723815}
   gameOverState: {fileID: 1218145573}
+  scoreText: {fileID: 0}
 --- !u!1001 &1933204101375674233
 PrefabInstance:
   m_ObjectHideFlags: 0
