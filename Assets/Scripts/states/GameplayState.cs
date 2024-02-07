@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 namespace TrafficInfinity
 {
@@ -12,11 +13,12 @@ namespace TrafficInfinity
         public PlayerController playerController;
         public GameState gameOverState;
 
-        public TMP_Text scoreText;
-        public TMP_InputField nameInput;
-        public ScoreData scoreData;
+        private LeaderboardManager leaderboardManager;
 
-
+        private void Start()
+        {
+            leaderboardManager = FindObjectOfType<LeaderboardManager>();
+        }
 
         protected override void OnEnable()
         {
@@ -33,29 +35,20 @@ namespace TrafficInfinity
 
         public void OnGameOver()
         {
+            
             Debug.Log("GameOver!!!");
-
-            int score = int.Parse(scoreText.text.Replace("Score: ", "")); // Получаем счет из текста и преобразуем в int
-            string playerName = nameInput.text;
-
-            scoreData.AddScore(playerName, score);
-            /* string textValue = scoreText.text;
-
-             if (int.TryParse(textValue, out int intValue))
-             {
-
-                 Debug.Log("Converted value: " + intValue);
-             }
-             else
-             {
-                 Debug.LogError("Unable to convert text to int");
-             }
-
-
-             scoreData.SaveScore(intValue);
-             Debug.Log("Данные сохранены");*/
             Exit();
             gameOverState.Enter();
+
+            if (leaderboardManager != null)
+            {
+                
+                leaderboardManager.ShowLeaderboard();
+            }
+            else
+            {
+                Debug.LogWarning("ScoreManager not found!");
+            }
         }
 
         protected override void OnDisable()

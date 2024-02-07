@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 using TMPro;
 
 
@@ -9,94 +9,80 @@ namespace TrafficInfinity
 {
     public class LeaderboardManager : MonoBehaviour
     {
+        public TMP_InputField nameInputField;
+        public TMP_Text scoreInputField;
+        public TMP_Text lBGOPText;
+        public TMP_Text lBMMText;
 
-        public TMP_InputField playerNameInput;
-        public TMP_InputField playerScoreInput;
-        public TMP_Text resultText;
-        public Button saveButton;
-        public Button resultButton;
+        private const string playerNameKeyPrefix = "PlayerName";
+        private const string playerScoreKeyPrefix = "PlayerScore";
+        private const int maxEntries = 10;
 
-        private List<Player> players = new List<Player>();
-
-        private void Start()
+        
+        public void SaveScore()
         {
-            saveButton.onClick.AddListener(SavePlayer);
-            resultButton.onClick.AddListener(DisplayRecords);
+            string playerName = nameInputField.text;
+            int playerScore = int.Parse(scoreInputField.text);
 
-            
-            LoadRecords();
-        }
-
-        private void SavePlayer()
-        {
-            string playerName = playerNameInput.text;
-            string recordInputText = playerScoreInput.text;
-
-            if (string.IsNullOrWhiteSpace(playerName) || string.IsNullOrWhiteSpace(recordInputText))
+            // Удаление самого низкого результата, если количество записей превышает максимум
+            if (PlayerPrefs.HasKey(playerScoreKeyPrefix + maxEntries))
             {
-                Debug.LogError("Both player name and record must be filled");
-                return;
+                PlayerPrefs.DeleteKey(playerNameKeyPrefix + maxEntries);
+                PlayerPrefs.DeleteKey(playerScoreKeyPrefix + maxEntries);
             }
 
-            if (!int.TryParse(recordInputText, out int playerRecord))
+            // Сдвиг всех записей вниз
+            for (int i = maxEntries - 1; i > 0; i--)
             {
-                Debug.LogError("Enter a valid record");
-                return;
+                if (PlayerPrefs.HasKey(playerScoreKeyPrefix + i))
+                {
+                    PlayerPrefs.SetString(playerNameKeyPrefix + (i + 1), PlayerPrefs.GetString(playerNameKeyPrefix + i));
+                    PlayerPrefs.SetInt(playerScoreKeyPrefix + (i + 1), PlayerPrefs.GetInt(playerScoreKeyPrefix + i));
+                }
             }
 
-            Player player = new Player { Name = playerName, Record = playerRecord };
-            players.Add(player);
-
-           
-            players.Sort((p1, p2) => p2.Record.CompareTo(p1.Record));
-
-            
-            playerNameInput.text = "";
-            playerScoreInput.text = "";
-
-            
-            SaveRecords();
-
-            Debug.Log("Data saved successfully");
-        }
-
-        private void DisplayRecords()
-        {
-            
-            resultText.text = "Records:\n";
-
-            foreach (var player in players)
-            {
-                resultText.text += $"{player.Name}: {player.Record}\n";
-            }
-        }
-
-        private void SaveRecords()
-        {
-            
-            string json = JsonUtility.ToJson(players);
-            PlayerPrefs.SetString("PlayerRecords", json);
+            // Сохранение новой записи
+            PlayerPrefs.SetString(playerNameKeyPrefix + 1, playerName);
+            PlayerPrefs.SetInt(playerScoreKeyPrefix + 1, playerScore);
             PlayerPrefs.Save();
+
+            Debug.Log("Score saved - Name: " + playerName + ", Score: " + playerScore);
         }
 
-        private void LoadRecords()
+        // Метод для отображения таблицы рекордов
+        public void ShowLeaderboard()
         {
-            
-            string json = PlayerPrefs.GetString("PlayerRecords", "");
-            players = JsonUtility.FromJson<List<Player>>(json);
+            List<Tuple<string, int>> leaderboard = new List<Tuple<string, int>>();
 
-            if (players == null)
+
+            for (int i = 1; i <= maxEntries; i++)
             {
-                players = new List<Player>();
+                if (PlayerPrefs.HasKey(playerScoreKeyPrefix + i))
+                {
+                    string playerName = PlayerPrefs.GetString(playerNameKeyPrefix + i);
+                    int playerScore = PlayerPrefs.GetInt(playerScoreKeyPrefix + i);
+                    leaderboard.Add(new Tuple<string, int>(playerName, playerScore));
+                }
             }
-        }
-    }
 
-    [System.Serializable]
-    public class Player
-    {
-        public string Name;
-        public int Record;
+
+            leaderboard.Sort((x, y) => y.Item2.CompareTo(x.Item2));
+
+
+            lBGOPText.text = "";
+            lBMMText.text = "";
+            foreach (var entry in leaderboard)
+            {
+                lBGOPText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
+                lBMMText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
+            }
+
+            
+            Debug.Log("Leaderboard displayed.");
+        }
+
+
     }
 }
+
 
