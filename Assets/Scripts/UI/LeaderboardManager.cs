@@ -73,14 +73,20 @@ namespace TrafficInfinity
             lBMMText.text = "";
             foreach (var entry in leaderboard)
             {
-                lBGOPText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
-                lBMMText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
+                lBGOPText.text += entry.Item1 + " " + entry.Item2 + "\n";
+                lBMMText.text += entry.Item1 + " " + entry.Item2 + "\n";
             }
 
             
             Debug.Log("Leaderboard displayed.");
+            //lBGOPText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
         }
 
+        public void ClearPrefs()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
 
     }
 }
