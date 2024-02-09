@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Art/Scenes/leaderBoard.unity
     guid: c0ff63c0069759e4b838a078253247dd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Art/Scenes/levelDark.unity
     guid: 558752d4956aa3a41974f4922f97145e
   m_configObjects: {}
