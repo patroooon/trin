@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Leaderboards;
@@ -10,6 +11,12 @@ namespace TrafficInfinity
 {
     public class LeaderBoardUnity : MonoBehaviour
     {
+        public TMP_InputField nameInputField;
+        public TMP_Text finalText;
+        public TMP_Text WorldRecordText;
+
+
+
         const string LeaderboardId = "leaderboard_config";
         string VersionId { get; set; }
         int Offset { get; set; }
@@ -26,7 +33,7 @@ namespace TrafficInfinity
 
         async Task SignInAnonymously()
         {
-            /*AuthenticationService.Instance.SignedIn += () =>
+            AuthenticationService.Instance.SignedIn += () =>
             {
                 Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
             };
@@ -34,29 +41,41 @@ namespace TrafficInfinity
             {
                 // Take some action here...
                 Debug.Log(s);
-            };*/
+            };
+
+            if (AuthenticationService.Instance.IsAuthorized)
+            {
+                Debug.Log("Authorized");
+                AuthenticationService.Instance.SignOut();
+                await UnityServices.InitializeAsync();
+            }
 
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
 
         public async void AddScore()
         {
-            var score = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, 102);
+            string playerName = nameInputField.text;
+            int playerScore = int.Parse(finalText.text);
+
+            var score = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, playerScore);
             Debug.Log(JsonConvert.SerializeObject(score));
+            Debug.Log("AddScore done");
         }
 
         public async void GetScores()
         {
-            var scoresResponse =
-                await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
-            Debug.Log(JsonConvert.SerializeObject(scoresResponse));
+            var scoresResponse = WorldRecordText;
+            await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
+            Debug.Log(JsonConvert.SerializeObject(scoresResponse)); 
+            Debug.Log("LB upload");
         }
 
         public async void GetPaginatedScores()
         {
             Offset = 10;
             Limit = 10;
-            var scoresResponse =
+            var scoresResponse = 
                 await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Offset = Offset, Limit = Limit });
             Debug.Log(JsonConvert.SerializeObject(scoresResponse));
         }

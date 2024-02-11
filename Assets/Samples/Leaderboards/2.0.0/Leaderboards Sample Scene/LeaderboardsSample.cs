@@ -34,6 +34,14 @@ public class LeaderboardsSample : MonoBehaviour
             Debug.Log(s);
         };
 
+        if (AuthenticationService.Instance.IsAuthorized)
+        {
+            Debug.Log("Authorized");
+            AuthenticationService.Instance.SignOut();
+            await UnityServices.InitializeAsync();
+        }
+
+
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
