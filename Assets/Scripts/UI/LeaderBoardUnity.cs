@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -6,6 +7,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Leaderboards;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TrafficInfinity
 {
@@ -13,9 +15,9 @@ namespace TrafficInfinity
     {
         public TMP_InputField nameInputField;
         public TMP_Text finalText;
-        public TMP_Text WorldRecordText;
+        public TMP_Text worldRecordText;
 
-
+        public Text text;
 
         const string LeaderboardId = "leaderboard_config";
         string VersionId { get; set; }
@@ -24,10 +26,10 @@ namespace TrafficInfinity
         int RangeLimit { get; set; }
         List<string> FriendIds { get; set; }
 
+
         async void Awake()
         {
             await UnityServices.InitializeAsync();
-
             await SignInAnonymously();
         }
 
@@ -55,7 +57,7 @@ namespace TrafficInfinity
 
         public async void AddScore()
         {
-            string playerName = nameInputField.text;
+           
             int playerScore = int.Parse(finalText.text);
 
             var score = await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardId, playerScore);
@@ -65,9 +67,8 @@ namespace TrafficInfinity
 
         public async void GetScores()
         {
-            var scoresResponse = WorldRecordText;
-            await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
-            Debug.Log(JsonConvert.SerializeObject(scoresResponse)); 
+            var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
+            worldRecordText.text = JsonConvert.SerializeObject(scoresResponse); 
             Debug.Log("LB upload");
         }
 
@@ -76,7 +77,7 @@ namespace TrafficInfinity
             Offset = 10;
             Limit = 10;
             var scoresResponse = 
-                await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Offset = Offset, Limit = Limit });
+            await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Offset = Offset, Limit = Limit });
             Debug.Log(JsonConvert.SerializeObject(scoresResponse));
         }
 

@@ -40,15 +40,7 @@ namespace TrafficInfinity
             Exit();
             gameOverState.Enter();
 
-            if (leaderboardManager != null)
-            {
-                
-                leaderboardManager.ShowLeaderboard();
-            }
-            else
-            {
-                Debug.LogWarning("ScoreManager not found!");
-            }
+         
         }
 
         protected override void OnDisable()

@@ -53,7 +53,7 @@ public class LeaderboardsSample : MonoBehaviour
 
     public async void GetScores()
     {
-        var scoresResponse =
+        var scoresResponse = 
             await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId);
         Debug.Log(JsonConvert.SerializeObject(scoresResponse));
     }

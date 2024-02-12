@@ -18,17 +18,33 @@ namespace TrafficInfinity
         private const string playerScoreKeyPrefix = "PlayerScore";
         private const int maxEntries = 10;
 
-        
+
         public void SaveScore()
         {
             string playerName = nameInputField.text;
-            int playerScore = int.Parse(scoreInputField.text);
+            int playerScore;
 
-            // Удаление самого низкого результата, если количество записей превышает максимум
+            // Проверка, является ли введенное значение числом
+            if (!int.TryParse(scoreInputField.text, out playerScore))
+            {
+                Debug.LogError("Invalid score input!");
+                return;
+            }
+
+            // Проверка, достаточно ли места для сохранения новой записи
             if (PlayerPrefs.HasKey(playerScoreKeyPrefix + maxEntries))
             {
-                PlayerPrefs.DeleteKey(playerNameKeyPrefix + maxEntries);
-                PlayerPrefs.DeleteKey(playerScoreKeyPrefix + maxEntries);
+                int lowestScore = PlayerPrefs.GetInt(playerScoreKeyPrefix + maxEntries);
+                if (playerScore < lowestScore)
+                {
+                    Debug.Log("Score is lower than the lowest score in the leaderboard. Not saving.");
+                    return;
+                }
+                else
+                {
+                    PlayerPrefs.DeleteKey(playerNameKeyPrefix + maxEntries);
+                    PlayerPrefs.DeleteKey(playerScoreKeyPrefix + maxEntries);
+                }
             }
 
             // Сдвиг всех записей вниз
