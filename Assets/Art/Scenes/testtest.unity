@@ -10499,7 +10499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &157585971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64378,7 +64378,6 @@ MonoBehaviour:
   nameInputField: {fileID: 1324084965}
   finalText: {fileID: 2001066362}
   worldRecordText: {fileID: 1252646995}
-  text: {fileID: 0}
 --- !u!1001 &1381127386
 PrefabInstance:
   m_ObjectHideFlags: 0

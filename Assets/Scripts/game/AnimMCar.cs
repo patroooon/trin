@@ -9,11 +9,9 @@ namespace TrafficInfinity
     {
         public Transform Van;
         public Transform Player;
-        //public float maxDistance = 10f;
         public GameController GameController;
 
-
-          private Animator anim;
+        private Animator anim;
 
         private void Update()
         {

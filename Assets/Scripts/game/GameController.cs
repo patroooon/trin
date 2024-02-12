@@ -24,14 +24,19 @@ namespace TrafficInfinity
             if (distance >= maxDistance)
             {
                 m_isOver = true;
-                GameEvent.onDistanceFar?.Invoke();     
+                StartCoroutine(DelayedDistanceFarEvent());
+                  
                 Debug.Log("большое расстояние!");
-               
-
             }
         }
 
-         public void OnTriggerEnter(Collider other)
+        IEnumerator DelayedDistanceFarEvent()
+        {
+            yield return new WaitForSeconds(1f); // задержка в 1 секунду
+            GameEvent.onDistanceFar?.Invoke();
+        }
+
+        public void OnTriggerEnter(Collider other)
         {
             if (m_isOver)
             {

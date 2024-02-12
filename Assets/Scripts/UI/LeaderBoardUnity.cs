@@ -7,7 +7,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Leaderboards;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 namespace TrafficInfinity
 {
@@ -17,7 +17,7 @@ namespace TrafficInfinity
         public TMP_Text finalText;
         public TMP_Text worldRecordText;
 
-        public Text text;
+        
 
         const string LeaderboardId = "leaderboard_config";
         string VersionId { get; set; }
