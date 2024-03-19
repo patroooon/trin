@@ -41281,6 +41281,7 @@ MonoBehaviour:
   Van: {fileID: 997659366}
   Player: {fileID: 1010628121}
   maxDistance: 16
+  m_playerController: {fileID: 1741723815}
 --- !u!54 &1010628126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -88136,6 +88137,7 @@ MonoBehaviour:
   maxSpeed: 60
   increaseSpeedDistance: 30
   zero: {fileID: 167506944}
+  m_isPauseActive: 1
   m_characterController: {fileID: 1010628121}
   m_inputActionAsset: {fileID: -944628639613478452, guid: 1eb9786b1712ca941b3f0ac3069114d1, type: 3}
 --- !u!4 &1741723816
@@ -96839,9 +96841,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685407268}
-        m_TargetAssemblyTypeName: TrafficInfinity.GameState, Assembly-CSharp
-        m_MethodName: Enter
+      - m_Target: {fileID: 1741723815}
+        m_TargetAssemblyTypeName: TrafficInfinity.PlayerController, Assembly-CSharp
+        m_MethodName: PauseActivate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

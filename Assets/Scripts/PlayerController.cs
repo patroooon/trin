@@ -13,6 +13,7 @@ namespace TrafficInfinity
         public float maxSpeed = 30f;
         public float increaseSpeedDistance = 30f;
         public Transform zero;
+        public bool m_isPauseActive = true;
 
         [SerializeField] private Transform m_characterController;
         [SerializeField] private InputActionAsset m_inputActionAsset;
@@ -50,7 +51,15 @@ namespace TrafficInfinity
 
         private void OnPauseAction(InputAction.CallbackContext obj)
         {
-            onPauseActivate?.Invoke();
+            PauseActivate();
+        }
+
+        public void PauseActivate()
+        {
+            if (m_isPauseActive)
+            {
+                onPauseActivate?.Invoke();
+            }
         }
 
         public void ActivateInput(bool value)
