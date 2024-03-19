@@ -14,27 +14,22 @@ namespace TrafficInfinity
         public TMP_Text lBGOPText;
         public TMP_Text lBMMText;
 
-        private const string playerNameKeyPrefix = "PlayerName";
         private const string playerScoreKeyPrefix = "PlayerScore";
-        private const int maxEntries = 10;
-
 
         public void SaveScore()
         {
-            string playerName = nameInputField.text;
+            //string playerName = nameInputField.text;
             int playerScore;
-
-            // Проверка, является ли введенное значение числом
+            
             if (!int.TryParse(scoreInputField.text, out playerScore))
             {
                 Debug.LogError("Invalid score input!");
                 return;
             }
-
-            // Проверка, достаточно ли места для сохранения новой записи
-            if (PlayerPrefs.HasKey(playerScoreKeyPrefix + maxEntries))
+            
+            if (PlayerPrefs.HasKey(playerScoreKeyPrefix))
             {
-                int lowestScore = PlayerPrefs.GetInt(playerScoreKeyPrefix + maxEntries);
+                int lowestScore = PlayerPrefs.GetInt(playerScoreKeyPrefix);
                 if (playerScore < lowestScore)
                 {
                     Debug.Log("Score is lower than the lowest score in the leaderboard. Not saving.");
@@ -42,60 +37,30 @@ namespace TrafficInfinity
                 }
                 else
                 {
-                    PlayerPrefs.DeleteKey(playerNameKeyPrefix + maxEntries);
-                    PlayerPrefs.DeleteKey(playerScoreKeyPrefix + maxEntries);
+                    PlayerPrefs.DeleteKey(playerScoreKeyPrefix);
+                    SavePrefs(playerScore);
                 }
             }
-
-            // Сдвиг всех записей вниз
-            for (int i = maxEntries - 1; i > 0; i--)
+            else
             {
-                if (PlayerPrefs.HasKey(playerScoreKeyPrefix + i))
-                {
-                    PlayerPrefs.SetString(playerNameKeyPrefix + (i + 1), PlayerPrefs.GetString(playerNameKeyPrefix + i));
-                    PlayerPrefs.SetInt(playerScoreKeyPrefix + (i + 1), PlayerPrefs.GetInt(playerScoreKeyPrefix + i));
-                }
+                SavePrefs(playerScore);
             }
-
-            // Сохранение новой записи
-            PlayerPrefs.SetString(playerNameKeyPrefix + 1, playerName);
-            PlayerPrefs.SetInt(playerScoreKeyPrefix + 1, playerScore);
-            PlayerPrefs.Save();
-
-            Debug.Log("Score saved - Name: " + playerName + ", Score: " + playerScore);
+            //Debug.Log("Score saved - Name: " + playerName + ", Score: " + playerScore);
         }
 
-        // Метод для отображения таблицы рекордов
+        private void SavePrefs(int playerScore)
+        {
+            PlayerPrefs.SetInt(playerScoreKeyPrefix, playerScore);
+            PlayerPrefs.Save();
+        }
+        
         public void ShowLeaderboard()
         {
-            List<Tuple<string, int>> leaderboard = new List<Tuple<string, int>>();
-
-
-            for (int i = 1; i <= maxEntries; i++)
-            {
-                if (PlayerPrefs.HasKey(playerScoreKeyPrefix + i))
-                {
-                    string playerName = PlayerPrefs.GetString(playerNameKeyPrefix + i);
-                    int playerScore = PlayerPrefs.GetInt(playerScoreKeyPrefix + i);
-                    leaderboard.Add(new Tuple<string, int>(playerName, playerScore));
-                }
-            }
-
-
-            leaderboard.Sort((x, y) => y.Item2.CompareTo(x.Item2));
-
-
+            int playerScore = PlayerPrefs.GetInt(playerScoreKeyPrefix);
             lBGOPText.text = "";
             lBMMText.text = "";
-            foreach (var entry in leaderboard)
-            {
-                lBGOPText.text += entry.Item1 + " " + entry.Item2 + "\n";
-                lBMMText.text += entry.Item1 + " " + entry.Item2 + "\n";
-            }
-
-            
+            lBMMText.text += "BestScore" + " " + playerScore + "\n";
             Debug.Log("Leaderboard displayed.");
-            //lBGOPText.text += "Name: " + entry.Item1 + ", Score: " + entry.Item2 + "\n";
         }
 
         public void ClearPrefs()
