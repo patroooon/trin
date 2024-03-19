@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace TrafficInfinity
@@ -12,7 +9,6 @@ namespace TrafficInfinity
         public GameController gameController;
         public GameObject Van;
         public GameObject Player;
-
 
         public void Restart()
         {
