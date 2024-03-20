@@ -67318,6 +67318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Props_BillBoard_large
       objectReference: {fileID: 0}
+    - target: {fileID: 2074070437018320950, guid: a1133ac6823cea440bcf77ca056897aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5305290045121756539, guid: a1133ac6823cea440bcf77ca056897aa, type: 3}
       propertyPath: m_Layer
       value: 3
