@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "295203027834",
+    "project_id": "traffic-infinity",
+    "storage_bucket": "traffic-infinity.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295203027834:android:c3ee3bec7352901783b4c3",
+        "android_client_info": {
+          "package_name": "com.XLab.TrafficInfinity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzJIMVwtlP64Hh3LKNDw3mOfKTBlHLzTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

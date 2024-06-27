@@ -87,7 +87,7 @@ namespace TrafficInfinity
             {
                 m_speedMove += 1f;
                 m_lastDistance = currentDistance;
-                Debug.Log("Ñêîðîñòü àâòî óâåëè÷åíà! Òåêóùåå çíà÷åíèå: " + m_speedMove);
+                Debug.Log("Ð¡ÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ Ð°Ð²Ñ‚Ð¾ ÑƒÐ²ÐµÐ»Ð¸Ñ‡ÐµÐ½Ð°! Ð¢ÐµÐºÑƒÑ‰ÐµÐµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: " + m_speedMove);
             }
 
             if (m_speedMove >= maxSpeed)

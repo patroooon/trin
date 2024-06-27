@@ -52,6 +52,7 @@ namespace TrafficInfinity
         {
             PlayerPrefs.SetInt(playerScoreKeyPrefix, playerScore);
             PlayerPrefs.Save();
+            GameAnalitics.gameAnalytics.LevelUp(playerScore);
         }
         
         public void ShowLeaderboard()
