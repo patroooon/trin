@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "295203027834",
-    "project_id": "traffic-infinity",
-    "storage_bucket": "traffic-infinity.appspot.com"
+    "project_number": "562964502567",
+    "project_id": "xlab-aaf64",
+    "storage_bucket": "xlab-aaf64.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:295203027834:android:c3ee3bec7352901783b4c3",
+        "mobilesdk_app_id": "1:562964502567:android:74f9d37b6f062e25fcd602",
         "android_client_info": {
-          "package_name": "com.XLab.TrafficInfinity"
+          "package_name": "com.XLab.EndlessDrive"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAzJIMVwtlP64Hh3LKNDw3mOfKTBlHLzTE"
+          "current_key": "AIzaSyChuL25HZtuZ-cnsdk-FwbMeYm-HecNwnY"
         }
       ],
       "services": {
