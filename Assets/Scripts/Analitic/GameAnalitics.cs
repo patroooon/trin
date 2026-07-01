@@ -1,5 +1,6 @@
 using Firebase;
 using Firebase.Analytics;
+using Firebase.Crashlytics;
 using UnityEngine;
 
 namespace TrafficInfinity
@@ -20,22 +21,26 @@ namespace TrafficInfinity
             else
                 Destroy(gameObject);
 
-            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+            // Проверяем и исправляем зависимости Firebase на устройстве
+            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => 
             {
                 var dependencyStatus = task.Result;
-                if (dependencyStatus == Firebase.DependencyStatus.Available)
+                if (dependencyStatus == DependencyStatus.Available)
                 {
-                    // Create and hold a reference to your FirebaseApp,
-                    // where app is a Firebase.FirebaseApp property of your application class.
-                    _canUseAnalytics = true;
-                    //  var app = FirebaseApp.DefaultInstance;
-                    // Set a flag here to indicate whether Firebase is ready to use by your app.
+                    // Зависимости в порядке, можно инициализировать сервисы
+                    FirebaseApp app = FirebaseApp.DefaultInstance;
+
+                    // Настройка Crashlytics (опционально, но рекомендуется)
+                    Crashlytics.ReportUncaughtExceptionsAsFatal = true;
+                
+                    // Пример отправки тестового события в Analytics
+                    FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLogin);
+
+                    Debug.Log("Firebase успешно инициализирован.");
                 }
                 else
                 {
-                    Debug.LogError(System.String.Format(
-                        "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
-                    // Firebase Unity SDK is not safe to use here.
+                    Debug.LogError($"Не удалось разрешить зависимости Firebase: {dependencyStatus}");
                 }
             });
         }
