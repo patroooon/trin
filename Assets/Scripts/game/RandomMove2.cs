@@ -8,7 +8,9 @@ namespace TrafficInfinity
     {
         //public float speedVan = 15f;
         public float minStopDuration = 1f;
+
         public float maxStopDuration = 3f;
+
         //public float increaseSpeedDistance = 30f;
         public Transform van;
         public PlayerController PlayerController;
@@ -17,6 +19,7 @@ namespace TrafficInfinity
         private float stopDuration;
         private float timer;
         private float lastDistance = 0f;
+        private bool m_isActivate = true;
 
         private void Start()
         {
@@ -27,32 +30,35 @@ namespace TrafficInfinity
         private void Update()
         {
             float speedVan = PlayerController.m_speedMove;
-            float currentDistance = Mathf.Abs(van.position.z - transform.position.z);
-            Debug.Log("Скорость грузовика увеличена! Текущее значение: " + speedVan);
 
+            if (!m_isActivate)
+            {
+                return;
+            }
+            
             if (onMoving)
             {
-               
                 transform.Translate(Vector3.forward * speedVan * Time.deltaTime);
             }
 
-            
+
             timer += Time.deltaTime;
 
             if (timer >= stopDuration)
             {
-                
                 onMoving = !onMoving;
                 timer = 0f;
 
                 if (onMoving)
                 {
-                    
                     stopDuration = Random.Range(minStopDuration, maxStopDuration);
                 }
             }
         }
 
-
+        public void ActivateMoveTraffic(bool value)
+        {
+            m_isActivate = value;
+        }
     }
 }

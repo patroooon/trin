@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">295203027834</string>
+  <string name="google_storage_bucket" translatable="false">traffic-infinity.appspot.com</string>
+  <string name="project_id" translatable="false">traffic-infinity</string>
+  <string name="google_api_key" translatable="false">AIzaSyAzJIMVwtlP64Hh3LKNDw3mOfKTBlHLzTE</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAzJIMVwtlP64Hh3LKNDw3mOfKTBlHLzTE</string>
+  <string name="google_app_id" translatable="false">1:295203027834:android:c3ee3bec7352901783b4c3</string>
+</resources>

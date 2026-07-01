@@ -18,7 +18,6 @@ namespace TrafficInfinity
                
             private void Update()
             {
-                
                 distanceTraveled = player.position.z;
                 distanceText.text = distanceTraveled.ToString("0") ;
                 finalText.text = distanceTraveled.ToString("0");

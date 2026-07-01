@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace TrafficInfinity
 {
@@ -12,6 +9,7 @@ namespace TrafficInfinity
         public Transform Player;
         public float maxDistance = 10f;
         private bool m_isOver;
+        [SerializeField] private PlayerController m_playerController;
 
         private void Update()
         {
@@ -32,8 +30,10 @@ namespace TrafficInfinity
 
         IEnumerator DelayedDistanceFarEvent()
         {
+            m_playerController.m_isPauseActive = false;
             yield return new WaitForSeconds(1f); // задержка в 1 секунду
             GameEvent.onDistanceFar?.Invoke();
+            m_playerController.m_isPauseActive = true;
         }
 
         public void OnTriggerEnter(Collider other)
